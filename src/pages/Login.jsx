@@ -2,10 +2,18 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useRef } from "react";
 import { useEffect,useState } from "react";
+import { signIn } from "../helpers/firebase";
+import {useNavigate} from "react-router-dom"
+import { signUpProvider } from "../helpers/firebase";
+import { useConsumeContext } from "../contexts/AuthContext";
 
 const Login = () => {
+  const { displayName, setDisplayName } = useConsumeContext();
+  const {currentUser,setCurrentUser} = useConsumeContext()
+
+  const navigate = useNavigate()
   const firstRef = useRef()
-  const [mail,setMail] = useState()
+  const [email,setEmail] = useState()
   const [password,setPassword] = useState()
   
 
@@ -15,10 +23,19 @@ const Login = () => {
 
 
   const handleSubmit = (e) => {
+
     e.preventDefault()
+    signIn(email, password, navigate)
+    console.log(currentUser.displayName);
+    
+   
+    setDisplayName(true);
   }
+  const handleProviderLogin = () => {
+    signUpProvider(navigate);
+  };
 
-
+ 
   return (
     <div className="d-flex justify-content-center main" >
       <div className="form-image d-none d-md-block ">
@@ -37,7 +54,7 @@ const Login = () => {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter your email adress.."
-            onChange={(e) => setMail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         
         </div>
@@ -57,12 +74,8 @@ const Login = () => {
         <button type="submit" className="btn form-control mb-3 btn-primary">
           Submit
         </button>
-        <button
-          className="btn btn-primary form-control"
       
-        >
-          Continue with Google <FcGoogle size={ 30 } />
-        </button>
+     
       </form>
     </div>
   );

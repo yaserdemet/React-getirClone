@@ -1,12 +1,15 @@
-
-import AppRouter from './app-router/AppRouter';
-import './App.css';
+import AppRouter from "./app-router/AppRouter";
+import "./App.css";
+import AuthContext from "./contexts/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   return (
     <div className="App">
-      <AppRouter />
-    
+      <AuthContext>
+        <AppRouter />
+        <ToastContainer />
+      </AuthContext>
     </div>
   );
 }
