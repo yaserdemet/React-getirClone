@@ -48,8 +48,8 @@ export const createUser = async (email, password, navigate, displayName) => {
     await updateProfile(auth.currentUser, {
       displayName: displayName,
     });
+    navigate("/about");
     // toastSuccessNotify("Registered successfully!");
-    navigate("/");
     console.log(userCredential);
   } catch (err) {
     toastErrorNotify(err.message);
@@ -68,11 +68,11 @@ export const signIn = async (email, password, navigate) => {
       password
     );
     // navigate("/");
-    // toastSuccessNotify("Signed in successfully!");
+    toastSuccessNotify("Signed in successfully!");
     // sessionStorage.setItem('user', JSON.stringify(userCredential.user));
     console.log(userCredential);
   } catch (err) {
-    // toastErrorNotify(err.message);
+    toastErrorNotify(err.message);
     console.log(err);
   }
 };
@@ -130,3 +130,7 @@ export const forgotPassword = (email) => {
       console.log("daw");
     });
 };
+
+
+//********************* DATABASE CONFIG ***************************/
+

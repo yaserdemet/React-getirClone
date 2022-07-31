@@ -9,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   const { displayName, setDisplayName } = useConsumeContext();
-
+  const { currentUser, setCurrentUser } = useConsumeContext();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
@@ -22,6 +22,7 @@ const Register = () => {
     setDisplayName(displayName);
     console.log(firstName, lastName);
     createUser(email, password, navigate, displayName);
+    setCurrentUser(email);
 
     //! burada navigate ile home gönderebilirdik. Fakat hatalı bir işlemde yine gönderecek. Bunun için firebase deki functionun try kısmında kullandık. Buradanda parametre ile gönderdik. Hookları componentlerin  içinde kullanabiliriz. Burası bir fonksiyon. Bu sebeple functiona parametre olarak gönderdik.
   };

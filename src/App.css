@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 .App {
   text-align: center;
 }
 * {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .App-logo {
@@ -53,4 +53,45 @@
 
 .main {
   height: 100vh;
+}
+
+.outer-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.card {
+  width: 30%;
+}
+
+@media screen and (max-width: 720px) {
+  .card {
+    width: 80%;
+  }
+}
+
+.outer-card img {
+  width: 100% !important;
+  height: 200px !important;
+}
+
+.togg {
+  color: red;
+}
+
+.blog-container {
+  width:60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.user-icon {
+  margin-right: 4rem;
 }

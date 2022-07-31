@@ -7,7 +7,10 @@ export const toastWarnNotify = (msg) => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    
+    style: {
+      background: "black",
+      color: "white",
+    }
   });
 };
 export const toastSuccessNotify = (msg) => {
@@ -18,6 +21,7 @@ export const toastSuccessNotify = (msg) => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    color: "dark",
   });
 };
 export const toastErrorNotify = (msg) => {
@@ -28,6 +32,5 @@ export const toastErrorNotify = (msg) => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    
   });
 };

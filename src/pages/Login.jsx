@@ -9,7 +9,7 @@ import { useConsumeContext } from "../contexts/AuthContext";
 
 const Login = () => {
   const { displayName, setDisplayName } = useConsumeContext();
-  const {currentUser,setCurrentUser} = useConsumeContext()
+  const { currentUser,setCurrentUser } = useConsumeContext()
 
   const navigate = useNavigate()
   const firstRef = useRef()
@@ -23,14 +23,13 @@ const Login = () => {
 
 
   const handleSubmit = (e) => {
-
     e.preventDefault()
+    if(!email || !password) {
+      return false
+    }
+
     signIn(email, password, navigate)
-    setCurrentUser(true)
-    
-    
-   
-  
+    navigate("/about")
   }
   const handleProviderLogin = () => {
     signUpProvider(navigate);

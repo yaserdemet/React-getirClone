@@ -12,7 +12,7 @@ export const useConsumeContext = () => {
 const AuthContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [displayName, setDisplayName] = useState(null);
-
+  
   useEffect(() =>{
         userObserver(setCurrentUser)
   }, [])

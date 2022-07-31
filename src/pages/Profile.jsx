@@ -1,19 +1,28 @@
 import React from "react";
+import {useNavigate} from "react-router-dom"
+import { useConsumeContext } from "../contexts/AuthContext";
 
 const Profile = () => {
-    
+  const navigate = useNavigate()
+  const { displayName, setDisplayName } = useConsumeContext();
+  const {currentUser,setCurrentUser} = useConsumeContext()
   return (
     <div>
-      <div className="card" style="width: 18rem;">
-        <div className="card-body">
-          <h5 className="card-title">Special title treatment</h5>
+      <div className="card1 mt-5 bg-warning p-3 container-fluid" >
+        <div className="card-body ">
+          <div>
+            <img src={"https://picsum.photos/150/150"} alt="" style={{borderRadius : "50%"}}/>
+          </div>
+          <h5 className="card-title">Welcome to Your Page</h5>
           <p className="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
+          { currentUser && "Username : " + currentUser.displayName}
           </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
+          <p className="card-text">
+       Your Email Adress:   {currentUser &&  currentUser.email}
+          </p>
+          <button onClick={() => navigate(-1)}  className="btn btn-outline-dark">
+            Go Previous Page
+          </button>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ const Navbar = () => {
      
         <div className="collapse navbar-collapse d-flex justify-content-around me-5" id="navbarNavDarkDropdown">
         <div className="container-fluid d-flex justify-content-between">
-        <Link to="/">
+        <Link to="/about">
           <img src={foto} style={{ width: "30px" }} alt="" />
         </Link>
 
@@ -55,14 +55,46 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu dropdown-menu-dark ">
                 <li>
-                  <Link to="/login" className="dropdown-item">
-                    Login
-                  </Link>
+                  {
+                    currentUser ? (
+                      <Link to="/logout" className="dropdown-item" onClick={handleClick}>
+                        Logout
+                      </Link>
+                    ):
+                    (
+                      <Link to="/login" className="dropdown-item">
+                        Login
+                      </Link>
+                    )
+                  }
+                
                 </li>
+
                 <li>
-                  <Link to="/register" className="dropdown-item">
+                  {
+                    currentUser && (
+                      <Link to="/blog" className="dropdown-item">
+                        Blog
+                      </Link>
+                    )
+                  }
+                </li>
+
+                <li>
+                  {
+                    currentUser && 
+                    <Link to="/profile" className="dropdown-item">
+                      Profile
+                      </Link>
+                  }
+                </li>
+
+                <li>
+                  {
+                    !currentUser && <Link to="/register" className="dropdown-item">
                     Register
                   </Link>
+                  }
                 </li>
                 
                 {
