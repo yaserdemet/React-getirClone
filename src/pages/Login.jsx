@@ -26,10 +26,11 @@ const Login = () => {
 
     e.preventDefault()
     signIn(email, password, navigate)
-    console.log(currentUser.displayName);
+    setCurrentUser(true)
+    
     
    
-    setDisplayName(true);
+  
   }
   const handleProviderLogin = () => {
     signUpProvider(navigate);

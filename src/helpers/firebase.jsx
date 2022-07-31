@@ -14,7 +14,7 @@ import {
   toastErrorNotify,
   toastSuccessNotify,
   toastWarnNotify,
-} from "./ToastNotify"
+} from "./ToastNotify";
 
 // TODO: Replace the following with your app's Firebase project configuration
 //* https://firebase.google.com/docs/auth/web/start
@@ -67,7 +67,7 @@ export const signIn = async (email, password, navigate) => {
       email,
       password
     );
-    navigate("/");
+    // navigate("/");
     // toastSuccessNotify("Signed in successfully!");
     // sessionStorage.setItem('user', JSON.stringify(userCredential.user));
     console.log(userCredential);

@@ -69,12 +69,12 @@ const Navbar = () => {
                   displayName && 
                     <li>
                      
-                       <Link to="#"
-              className="dropdown-item"
+                       <Link to="/profile" className="dropdown-item"
+              
               >
-               
+               Profile
                  {/* {displayName.split(" ")[0]} */}
-                 {displayName.slice(0 , displayName.indexOf(" ")).toUpperCase()}
+                 {/* {displayName.slice(0 , displayName.indexOf(" ")).toUpperCase()} */}
               </Link>
               
               </li> 
