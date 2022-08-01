@@ -129,9 +129,9 @@ const About = () => {
   {
    isLoading ? console.log("dawdaw"): (
     contactList?.map((item, index) => {
-      const {title,url, text} = item
+      const {title,url, text, id} = item
       return(
-        <BlogForm key={index}  title={title} url={url} text={text} />
+        <BlogForm key={index} item={item}  title={title} url={url} text={text} id={id}/>
       )
       })
    )

@@ -51,7 +51,8 @@ export const createUser = async (email, password, navigate, displayName) => {
       auth,
       email,
       password
-    );
+      );
+      console.log(userCredential)
     //? kullanıcı profilini güncellemek için kullanılan firebase metodu
     await updateProfile(auth.currentUser, {
       displayName: displayName,

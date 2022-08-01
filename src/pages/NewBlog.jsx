@@ -8,6 +8,7 @@ const NewBlog = () => {
     title: "",
     url: "",
     text: "",
+    id: new Date().getTime()
   });
 
   const handleChange = (e) => {
@@ -17,7 +18,7 @@ const NewBlog = () => {
       ...values,
       [e.target.name]: e.target.value,
     });
-    console.log(values.url)
+    // console.log(values.url)
   };
 
 
@@ -28,7 +29,8 @@ const NewBlog = () => {
     setValues({
       text : "",
       url: "",
-      title : ""
+      title : "",
+      id: new Date().getTime()
     })
   }
 
@@ -72,7 +74,7 @@ const NewBlog = () => {
         ></textarea>
       </div>
       <div>
-        <button className="form-control btn btn-primary">Submit</button>
+        <button onClick={() => console.log(values.id)} className="form-control btn btn-primary">Submit</button>
       </div>
     </form>
   );

@@ -1,18 +1,17 @@
 import React from "react";
-
+import {useNavigate} from "react-router-dom"
 import { FiHeart } from "react-icons/fi";
 import { GoComment } from "react-icons/go";
 import { TbUserCircle } from "react-icons/tb";
+import { Navigate } from "react-router-dom";
 
-const BlogForm = ({ title, text, url }) => {
-  console.log(title, text, url);
+const BlogForm = ({ title, text, url , index , id, item}) => {
+  console.log(title, text, url,id);
+  const navigate = useNavigate()
 
-const handleClick = () => {
-    
-}
 
   return (
-    <div className="card " onClick={handleClick}>
+    <div className="card " onClick={() => navigate(`/details/${id}`, {state : item})}>
       <div className="img-card">
         <img src={url} className="card-img-top" alt="js" />
       </div>
@@ -37,6 +36,7 @@ const handleClick = () => {
           </span>
         </li>
       </ul>
+   
     </div>
   );
 };

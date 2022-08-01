@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between ">
      
         <div className="collapse navbar-collapse d-flex justify-content-around me-5" id="navbarNavDarkDropdown">
-        <div className="container-fluid d-flex justify-content-between">
+        <div className="container-fluid d-flex justify-content-between ms-5">
         <Link to="/about">
           <img src={foto} style={{ width: "30px" }} alt="" />
         </Link>
@@ -40,9 +40,9 @@ const Navbar = () => {
         
         <div className="text-light">
           {/* {displayName && "" + "<"  + displayName.stringify() + ">"} */}
-        {currentUser && currentUser.displayName}
+        {currentUser &&  "────  < " + currentUser.displayName + " / >  ────" }
         </div>
-          <ul className="navbar-nav">
+          <ul className="navbar-nav " style={{marginRight : "5rem"}}>
             <li className="nav-item dropdown">
               <a
                 className="nav-link "
