@@ -1,6 +1,7 @@
 import React from "react";
 import blog from "../assets/blok.png";
 import { useState } from "react";
+import {addBlog} from "../helpers/functions"
 
 const NewBlog = () => {
   const [values, setValues] = useState({
@@ -19,8 +20,15 @@ const NewBlog = () => {
     console.log(values.url)
   };
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(values);
+    addBlog(values)
+  }
+
   return (
-    <div className="blog-container mt-3">
+    <form  onSubmit={handleSubmit}  className="blog-container mt-3">
       <div>
         <img src={blog} alt="" />
       </div>
@@ -61,7 +69,7 @@ const NewBlog = () => {
       <div>
         <button className="form-control btn btn-primary">Submit</button>
       </div>
-    </div>
+    </form>
   );
 };
 
