@@ -25,6 +25,11 @@ const NewBlog = () => {
     e.preventDefault();
     // console.log(values);
     addBlog(values)
+    setValues({
+      text : "",
+      url: "",
+      title : ""
+    })
   }
 
   return (
