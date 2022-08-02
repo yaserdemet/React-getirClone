@@ -58,7 +58,7 @@ const Details = () => {
       </div>
       <div>
       <button className="btn btn-dark" onClick={() => navigate(-1)}>BACK</button>
-      <button className="btn btn-warning m-3">UPDATE</button>
+      <button className="btn btn-warning m-3" >UPDATE</button>
       <button className="btn btn-danger" onClick={() => deleteBlog(id, navigate)}>DELETE</button>
       </div>
      

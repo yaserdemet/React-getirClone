@@ -32,7 +32,7 @@ const About = () => {
     <div className="outer-card">
 
 
-      <div className="card ">
+      {/* <div className="card ">
         <div className="img-card">
           <img src={js} className="card-img-top" alt="js" />
         </div>
@@ -122,8 +122,8 @@ const About = () => {
               <GoComment />{" "}
             </span>
           </li>
-        </ul>
-      </div>
+        </ul> */}
+      {/* </div> */}
 
 <div className="outer-card">
   {

@@ -1,19 +1,23 @@
 import React from "react";
 import blog from "../assets/blok.png";
 import { useState } from "react";
-import {addBlog} from "../helpers/functions"
+import {useNavigate} from "react-router-dom"
+import { addBlog } from "../helpers/functions";
+import { toastSuccessNotify } from "../helpers/ToastNotify";
 
 const NewBlog = () => {
+  const navigate = useNavigate()
   const [values, setValues] = useState({
     title: "",
     url: "",
     text: "",
-    id: new Date().getTime()
+    id: new Date().getTime(),
   });
 
   const handleChange = (e) => {
     e.preventDefault();
     // console.log(e.target.name +  ":" +  e.target.value);
+
     setValues({
       ...values,
       [e.target.name]: e.target.value,
@@ -21,21 +25,27 @@ const NewBlog = () => {
     // console.log(values.url)
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(values);
-    addBlog(values)
+
+    addBlog(values);
     setValues({
-      text : "",
+      text: "",
       url: "",
-      title : "",
-      id: new Date().getTime()
-    })
-  }
+      title: "",
+      id: new Date().getTime(),
+    });
+    toastSuccessNotify("Your blog has been added.")
+
+    setTimeout(() => {
+      navigate("/about")
+    },4000)
+    
+  };
 
   return (
-    <form  onSubmit={handleSubmit}  className="blog-container mt-3">
+    <form onSubmit={handleSubmit} className="blog-container mt-3">
       <div>
         <img src={blog} alt="" />
       </div>
@@ -64,6 +74,7 @@ const NewBlog = () => {
       </div>
       <div className="mb-3">
         <textarea
+
           value={values.text}
           className="form-control"
           name="text"
@@ -74,7 +85,12 @@ const NewBlog = () => {
         ></textarea>
       </div>
       <div>
-        <button onClick={() => console.log(values.id)} className="form-control btn btn-primary">Submit</button>
+        <button
+          onClick={() => console.log(values.id)}
+          className="form-control btn btn-primary"
+        >
+          Submit
+        </button>
       </div>
     </form>
   );
