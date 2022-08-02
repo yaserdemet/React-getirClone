@@ -9,7 +9,7 @@ const Profile = () => {
   return (
     <div>
       <div className="card1 mt-5 bg-warning p-3 container-fluid" >
-        <div className="card-body ">
+        <div className="card-body-detail ">
           <div>
             <img src={"https://picsum.photos/150/150"} alt="" style={{borderRadius : "50%"}}/>
           </div>

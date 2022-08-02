@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { FiHeart } from "react-icons/fi";
 import { GoComment } from "react-icons/go";
 import { TbUserCircle } from "react-icons/tb";
-import { deleteBlog } from "../helpers/functions";
+import { deleteBlog, handleUpdate } from "../helpers/functions";
 import "../App.css";
 import { useConsumeContext } from "../contexts/AuthContext";
 const Details = () => {
@@ -32,7 +32,7 @@ const Details = () => {
           <img src={url} className="card-img-top" alt={title} />
         </div>
 
-        <div className="card-body">
+        <div className="card-body-detail">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">
             {text}
@@ -58,7 +58,7 @@ const Details = () => {
       </div>
       <div>
       <button className="btn btn-dark" onClick={() => navigate(-1)}>BACK</button>
-      <button className="btn btn-warning m-3" >UPDATE</button>
+      <button className="btn btn-warning m-3" onClick={() => handleUpdate(id, navigate, title , url ,text , url)}>UPDATE</button>
       <button className="btn btn-danger" onClick={() => deleteBlog(id, navigate)}>DELETE</button>
       </div>
      

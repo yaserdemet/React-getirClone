@@ -18,6 +18,7 @@ export const addBlog = (values) => {
     title: values.title,
     url: values.url,
     text: values.text,
+    likes : values.likes,
   });
 };
 
@@ -53,3 +54,14 @@ export const deleteBlog = (id, navigate) => {
   toastSuccessNotify("Your blog has been deleted");
   navigate("/about");
 };
+
+
+
+
+//*************************************** Update Kısmı ******************************************************* */
+
+export const handleUpdate = (id, navigate, text, url , title) => {
+  navigate("/update" , { state : {id : id  , text : text , url : url , title : title}})
+
+  
+}

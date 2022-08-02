@@ -12,6 +12,7 @@ const NewBlog = () => {
     url: "",
     text: "",
     id: new Date().getTime(),
+    likes : 0,
   });
 
   const handleChange = (e) => {
@@ -50,7 +51,7 @@ const NewBlog = () => {
         <img src={blog} alt="" />
       </div>
       <div>
-        <h3> New Blog</h3>
+        <h3> ──── New Blog ────</h3>
       </div>
       <div className="mb-3">
         <input
