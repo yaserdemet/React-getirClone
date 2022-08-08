@@ -13,8 +13,8 @@ const BlogContext = ({children}) => {
     title: "",
     url: "",
     text: "",
-    id: new Date().getTime(),
-    likes : 0,
+    id: "",
+    mail: "",
   });
   return (
     <div>
