@@ -4,16 +4,11 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom"
 import { addBlog } from "../helpers/functions";
 import { toastSuccessNotify } from "../helpers/ToastNotify";
+import { useValueContext } from "../contexts/BlogContext";
 
 const NewBlog = () => {
   const navigate = useNavigate()
-  const [values, setValues] = useState({
-    title: "",
-    url: "",
-    text: "",
-    id: new Date().getTime(),
-    likes : 0,
-  });
+  const {values , setValues} = useValueContext()
 
   const handleChange = (e) => {
     e.preventDefault();

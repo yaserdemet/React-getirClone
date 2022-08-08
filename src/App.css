@@ -59,12 +59,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 1rem;
+  width: 100%;
 }
 .card {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 720px) {
@@ -81,7 +87,9 @@
   width: 100% !important;
   height: 200px !important;
 }
-
+.img-card {
+  width: 100%;
+}
 .card-body {
   height: 100px ;
   
