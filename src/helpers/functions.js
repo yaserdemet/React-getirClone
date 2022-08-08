@@ -18,7 +18,7 @@ export const addBlog = (values) => {
     title: values.title,
     url: values.url,
     text: values.text,
-    likes : values.likes,
+    id : values.id,
   });
 };
 
