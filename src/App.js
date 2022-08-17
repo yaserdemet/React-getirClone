@@ -1,8 +1,6 @@
-import AppRouter from "./app-router/AppRouter";
 import "./App.css";
-import AuthContext from "./contexts/AuthContext";
-import { ToastContainer, toast } from "react-toastify";
-import BlogContext from "./contexts/BlogContext";
+import NavBar from "./components/Navbar";
+
 
 function App() {
 
@@ -10,12 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <AuthContext>
-        <BlogContext>
-        <AppRouter />
-        </BlogContext>
-        <ToastContainer />
-      </AuthContext>
+      <NavBar />
     </div>
   );
 }

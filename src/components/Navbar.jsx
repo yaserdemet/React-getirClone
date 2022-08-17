@@ -1,122 +1,78 @@
-import React from "react";
-import { FaUserTie } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import foto from "../assets/cw.jpeg";
-import { useConsumeContext } from "../contexts/AuthContext";
-import { logOut } from "../helpers/firebase";
-import { useNavigate } from "react-router-dom";
-const Navbar = () => {
-  const navigate = useNavigate();
-  const { displayName, setDisplayName } = useConsumeContext();
-  const { currentUser, setCurrentUser } = useConsumeContext();
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import { makeStyles } from "@material-ui/core/styles";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import blok from "../assets/blok.png";
 
-  const handleClick = () => {
-    logOut();
-    navigate("/login");
-    setDisplayName(false);
+export default function NavBar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between ">
-      <div
-        className="collapse navbar-collapse d-flex justify-content-around me-5"
-        id="navbarNavDarkDropdown"
-      >
-        <div className="container-fluid d-flex justify-content-between ms-5">
-          <Link to="/about">
-            <img src={foto} style={{ width: "30px" }} alt="" />
-          </Link>
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDarkDropdown"
-            aria-controls="navbarNavDarkDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" color="primary">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
           >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+            <img src={blok} alt="" style={{ width: "50px" }} />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <span>{"<DEMET />"}</span>
+          </Typography>
 
-          <div className="text-light">
-            {/* {displayName && "" + "<"  + displayName.stringify() + ">"} */}
-            {currentUser && "────  < " + currentUser.displayName + " / >  ────"}
+          <div>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              color="inherit"
+            >
+              <AccountCircle style={{fontSize : "30px"}} />
+              {/* size ile de verilebilirdi.  */}
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+            </Menu>
           </div>
-          <ul className="navbar-nav " style={{ marginRight: "5rem" }}>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link "
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <FaUserTie size={25} />
-              </a>
-              <ul className="dropdown-menu dropdown-menu-dark ">
-                <li>
-                  {currentUser ? (
-                    <Link
-                      to="/logout"
-                      className="dropdown-item"
-                      onClick={handleClick}
-                    >
-                      Logout
-                    </Link>
-                  ) : (
-                    <Link to="/login" className="dropdown-item">
-                      Login
-                    </Link>
-                  )}
-                </li>
-
-                <li>
-                  {currentUser && (
-                    <Link to="/blog" className="dropdown-item">
-                      Blog
-                    </Link>
-                  )}
-                </li>
-
-                <li>
-                  {currentUser && (
-                    <Link to="/profile" className="dropdown-item">
-                      Profile
-                    </Link>
-                  )}
-                </li>
-
-                <li>
-                  {!currentUser && (
-                    <Link to="/register" className="dropdown-item">
-                      Register
-                    </Link>
-                  )}
-                </li>
-
-                {displayName && (
-                  <li>
-                    <Link to="/profile" className="dropdown-item">
-                      Profile
-                      {/* {displayName.split(" ")[0]} */}
-                      {/* {displayName.slice(0 , displayName.indexOf(" ")).toUpperCase()} */}
-                    </Link>
-                  </li>
-                )}
-
-                <li>
-                  <div onClick={handleClick} className="dropdown-item">
-                    {displayName && "Logout"}
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+          
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
-};
-
-export default Navbar;
+}
