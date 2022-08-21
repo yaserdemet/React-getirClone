@@ -28,7 +28,19 @@ function Header(props) {
     DE: "+49",
     IT: "+39",
     IN: "+91",
+    FR: "+33",
+    ES: "+34",
+    BR: "+55",
+    RU: "+7",
+    CN: "+86",
+    CA: "+1",
+    MX: "+52",
+    AR: "+54",
+    CO: "+57",
+    CL: "+56",
+
   };
+  // * ülke alan kodlarını bir objede tuttum.
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -180,10 +192,11 @@ function Header(props) {
         <div className="d-flex gap-3 mt-3">
           <ReactFlagsSelect
             countries={Object.keys(phones)}
+            //! burada bayrakları getirdi object.keys in içine objeyi at.
             customLabels={phones}
             placeholder="Select Language"
             onSelect={(code) => setSelected(code)}
-         
+            //* burada seçilen bayrağı set ediyor.
             selected={selected}
             className ="p-2"
           />

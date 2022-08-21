@@ -14,21 +14,23 @@ const Categories = () => {
   }, []);
   return (
     <Container className="mt-5">
-      <Typography variant="subtitle2" component="h1">
+      
+
+      <div className="container-fluid">
+        <div className="row">
+        <Typography variant="subtitle2" component="h1" style={{marginLeft  : "8rem"}}>
         Categories
       </Typography>
-
-      <div className="container">
-        <div className="row">
           {category &&
             category.map((item, index) => {
               return (
-                <div className="col-md-4 mb-3" key={index}>
+                <div className="col-md-4 mb-3 d-flex justify-content-center" key={index}>
                   <div className="card">
+                    
                     <img src={item.image} alt="" width="50px" />
-                  <Typography variant="subtitle2" component="h6">
-                    {item.title}
-                  </Typography>
+                    <Typography variant="subtitle2" component="h6">
+                      {item.title}
+                    </Typography>
                   </div>
                 </div>
               );
