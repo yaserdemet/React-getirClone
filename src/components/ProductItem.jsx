@@ -6,11 +6,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-
+import {BsPlus} from 'react-icons/bs';
 export default function ProductItem({ product }) {
   return (
 <div className="x">
-    <Card sx={{width : 200 , height : 250}} >
+    <Card sx={{width : 200 , height : 250 , position : "relative"}} >
+    <BsPlus className="icons"  size={20}  style={{position : "absolute" , top : "3" , right : "3"}}/>
       <CardMedia
         component="img"
         alt="green iguana"
@@ -19,6 +20,7 @@ export default function ProductItem({ product }) {
       />
       <CardContent>
         <Typography gutterBottom sx={{textAlign :  "center"}} component="div">
+          {/*  sx in içinde CamelCase olarak yaz  */}
           {
           <small>
             product.title

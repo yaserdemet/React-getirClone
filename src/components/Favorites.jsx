@@ -3,7 +3,7 @@ import product from "../apis/favorite.json";
 import {useState , useEffect} from "react";
 import ProductItem from './ProductItem';
 import { Container, Typography } from '@mui/material';
-
+import {BsPlus} from 'react-icons/bs';
 
 
 const Favorites = () => {
@@ -15,9 +15,9 @@ useEffect(() => {
 } , [])
   return (
     <Container>
-      
-          <Typography>
-            Favoriler
+    
+          <Typography variant="h6">
+            <bold>Favoriler</bold>
           </Typography>
 
           <div style={{
@@ -35,9 +35,9 @@ useEffect(() => {
 
               return (
                 <ProductItem key={index} product={product} />
-                //* destructure edip tek tekte gönderebilirdik.
-              )
-            })}
+              // ? <ProductItem key={index} img={image} title={title} price={price} id={id} /> şeklinde
+              
+            )})}
           </div>
 
 
