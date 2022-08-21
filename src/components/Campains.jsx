@@ -30,11 +30,21 @@ function Campains() {
   const maxSteps = images.length;
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if (activeStep === maxSteps -1){
+      setActiveStep(0);
+    }
+    else{
+    setActiveStep((x) => x + 1);
+    }
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if(activeStep === 0){
+      setActiveStep(maxSteps -1);
+    }
+    else{
+    setActiveStep((x) => x - 1);
+    }
   };
 
   const handleStepChange = (step) => {
@@ -78,7 +88,7 @@ function Campains() {
           ))
         )}
       </AutoPlaySwipeableViews>
-      {/* <MobileStepper
+      <MobileStepper
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
@@ -86,7 +96,7 @@ function Campains() {
           <Button
             size="small"
             onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
+        
           >
             Next
             {theme.direction === 'rtl' ? (
@@ -97,7 +107,7 @@ function Campains() {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button size="small" onClick={handleBack} >
             {theme.direction === 'rtl' ? (
               <KeyboardArrowRight />
             ) : (
@@ -106,7 +116,7 @@ function Campains() {
             Back
           </Button>
         }
-      /> */}
+      />
     </Container>
   );
 }

@@ -19,7 +19,7 @@ const Categories = () => {
   
   return (
     <Container className="mt-5" >
-      <div className="container-fluid" style={{backgroundColor : "#D9D9D9"}}>
+      <div className="container-fluid pt-3" style={{backgroundColor : "#D9D9D9"}}>
         <div className="row">
          
 
