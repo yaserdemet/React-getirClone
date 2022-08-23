@@ -6,7 +6,7 @@ import Favorites from "./components/Favorites";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SwipeableTextMobileStepper from "./components/SwipeableTextMobileStepper";
-import MobileApp from "./components/MobileApp";
+// import MobileApp from "./components/MobileApp";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Categories />
       <Campains />
       <Favorites />
-      <MobileApp />
+      {/* <MobileApp /> */}
       <Card />
       <Footer />
     </div>
