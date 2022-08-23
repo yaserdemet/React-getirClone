@@ -10,13 +10,13 @@ const UniqueCard = ({ card }) => {
   const { desc, title, image } = card;
   return (
     <div>
-      <div className="card" style={{ width: "18rem", height: "32rem" }}>
+      <div className="card p-4" style={{ width: "18rem", height: "32rem" }}>
         <img src={image} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
-          <p className="card-text">{read ? `${desc.substring(0,15)}`: desc}</p>
+          <p className="card-text opacity-75">{read ? `${desc.substring(0,15)}`: desc}</p>
 
-          <div className="mt-5">
+          <div className= "mt-5">
             <Button onClick={() => setRead(!read)} color="secondary" variant="contained">
               {/* // içine bir parametre alıyorsa () => abc  şeklinde yaz */}
               {!read ? "Read Less" : "Read More"}

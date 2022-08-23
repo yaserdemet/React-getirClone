@@ -4,6 +4,7 @@ import { Typography } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
 import data from "../apis/apis.json";
+import { Grid } from "@material-ui/core";
 
 const Categories = () => {
   const [category, setCategory] = useState([]);
@@ -39,17 +40,22 @@ const Categories = () => {
             category.map((item, index) => {
               return (
              
-                <div
-                  className="col-md-3 mb-3 d-flex justify-content-center"
+                <Grid
+                xs={12}
+                sm={6}
+                md={6}
+                lg={3}
+                xl={3}
+                  className="  mb-3 d-flex justify-content-center"
                   key={index}
                 >
-                  <div className="card text-opacity-75">
+                  <div className="card ">
                     <img src={item.image} alt="" width="50px" />
-                    <Typography variant="subtitle2" component="h6">
+                    <Typography variant="subtitle2"  component="h6" sx={{marginTop : "1rem" , fontSize : "0.8rem"}}>
                       {item.title}
                     </Typography>
                   </div>
-                </div>
+                </Grid>
               );
             } )
 

@@ -204,7 +204,9 @@ function Header(props) {
           <TextField id="outlined-basic" label="Phone Number" variant="outlined" />
         </div>
         <div className="mt-3" style= {{display : "flex" , justifyContent : "center" , width : "100%"}}>
-        <button  style= {{ width : "100%"}}  type="button" className="btn btn-warning">Warning</button>
+        <button  style= {{ width : "100%"}}  type="button" className="btn btn-warning">
+          <span className="opacity-75">Telefon Numarası ile devam et</span>
+          </button>
         </div>
       
       </Box>

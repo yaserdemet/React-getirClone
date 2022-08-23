@@ -13,11 +13,19 @@ import images from "../apis/images";
 import Container from "@mui/material/Container";
 import { useEffect, useState } from "react";
 
+import {
+  useWindowSize,
+  useWindowWidth,
+  useWindowHeight,
+} from '@react-hook/window-size'
+
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 
 function Campains() {
   const [data, setData] = useState([]);
+
+  const windowWidth = useWindowWidth()
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,6 +38,8 @@ function Campains() {
   const maxSteps = images.length;
 
   const handleNext = () => {
+
+
     if (activeStep === maxSteps -1){
       setActiveStep(0);
     }
@@ -52,6 +62,8 @@ function Campains() {
   };
 
   return (
+
+    
     <Container sx={{ maxWidth: 400, flexGrow: 1, marginTop: 5 }}>
       <Typography variant="h6">
         <bold>Kampanyalar</bold>
@@ -88,6 +100,7 @@ function Campains() {
           ))
         )}
       </AutoPlaySwipeableViews>
+
       <MobileStepper
         steps={maxSteps}
         position="static"
