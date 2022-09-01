@@ -5,8 +5,6 @@
 [🛒click here to see page](https://react-getir-clone-beta.vercel.app
 )
 
-Project aims to create a Movie App.
-
 ## Problem Statement
 
 - This project aims to create Getir's Landing Page with Material UI.
