@@ -33,7 +33,7 @@
 📌 Deployment with Vercel and Netlify
 
 
-### For Seo optimization Helmet Hook can bu used in multiple page. But meta itemprop can be enough.
+### For Seo optimization Helmet Hook can be used in multiple page. But meta itemprop can be enough.
 
 ```
   <meta itemprop="description" content="Getir Landing Page with React.js and MUI">
